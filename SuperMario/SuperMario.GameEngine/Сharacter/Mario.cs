@@ -47,10 +47,16 @@ namespace SuperMario.GameEngine.Сharacter
             listBullets.Add(new Bullet(mario.X+1, mario.Y)); 
         }
 
-        public bool ObjectCollisions(Mario mario, char[,] gameGround, Movement movement)
+        public bool ObjectCollisions(Mario mario, char[,] gameGround, Movement movement, Game game)
         {
             if (movement.RightButton == true)
             {
+                if (gameGround[mario.X, mario.Y - 1] == '[')
+                {
+                    movement.CanMove = false;
+                    game.GameInProgress = false;
+                    game.GameFinished = true;
+                }
                 if (gameGround[mario.X, mario.Y - 1] == 'X')
                 {
                     movement.CanMove = false;
@@ -141,15 +147,6 @@ namespace SuperMario.GameEngine.Сharacter
                 }
             }
             return mario.Life;
-        }
-
-        public void MarioFinished(Mario mario, char[,] gameGround, Game game)
-        {
-            if (gameGround[mario.X+1, mario.Y-1] == '[')
-            {
-                game.GameInProgress = false;
-                game.GameFinished = true;
-            }
         }
     }
 }

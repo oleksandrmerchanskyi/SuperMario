@@ -28,6 +28,7 @@ namespace SuperMario.GameEngine.Test
         {
             Movement move= new Movement();
             move.RightButton = true;
+            Game game = new Game();
             Mario mario = new Mario(1,1);
             char[,] gameGround = new char[3,3];
             gameGround[0, 0] = 'X';
@@ -39,7 +40,7 @@ namespace SuperMario.GameEngine.Test
             gameGround[2, 0] = 'X';
             gameGround[2, 1] = 'X';
             gameGround[2, 2] = 'X';
-            mario.ObjectCollisions(mario, gameGround, move);
+            mario.ObjectCollisions(mario, gameGround, move, game);
             Assert.IsFalse(move.CanMove);
         }
         [TestMethod]
@@ -48,6 +49,7 @@ namespace SuperMario.GameEngine.Test
             Movement move = new Movement();
             move.RightButton = true;
             Mario mario = new Mario(1, 1);
+            Game game = new Game();
             char[,] gameGround = new char[3, 3];
             gameGround[0, 0] = ' ';
             gameGround[0, 1] = ' ';
@@ -58,7 +60,7 @@ namespace SuperMario.GameEngine.Test
             gameGround[2, 0] = ' ';
             gameGround[2, 1] = ' ';
             gameGround[2, 2] = ' ';
-            mario.ObjectCollisions(mario, gameGround, move);
+            mario.ObjectCollisions(mario, gameGround, move, game);
             Assert.IsTrue(move.CanMove);
         }
         [TestMethod]
@@ -66,6 +68,7 @@ namespace SuperMario.GameEngine.Test
         {
             Movement move = new Movement();
             move.LeftButton = true;
+            Game game = new Game();
             Mario mario = new Mario(2, 1);
             char[,] gameGround = new char[3, 3];
             gameGround[0, 0] = 'X';
@@ -77,7 +80,7 @@ namespace SuperMario.GameEngine.Test
             gameGround[2, 0] = 'X';
             gameGround[2, 1] = ' ';
             gameGround[2, 2] = 'X';
-            mario.ObjectCollisions(mario, gameGround, move);
+            mario.ObjectCollisions(mario, gameGround, move, game);
             Assert.IsFalse(move.CanMove);
         }
         [TestMethod]
@@ -86,6 +89,7 @@ namespace SuperMario.GameEngine.Test
             Movement move = new Movement();
             move.LeftButton = true;
             Mario mario = new Mario(2, 1);
+            Game game = new Game();
             char[,] gameGround = new char[3, 3];
             gameGround[0, 0] = ' ';
             gameGround[0, 1] = ' ';
@@ -96,7 +100,7 @@ namespace SuperMario.GameEngine.Test
             gameGround[2, 0] = ' ';
             gameGround[2, 1] = ' ';
             gameGround[2, 2] = ' ';
-            mario.ObjectCollisions(mario, gameGround, move);
+            mario.ObjectCollisions(mario, gameGround, move, game);
             Assert.IsTrue(move.CanMove);
         }
         [TestMethod]
@@ -105,6 +109,7 @@ namespace SuperMario.GameEngine.Test
             Movement move = new Movement();
             move.UpButton = true;
             Mario mario = new Mario(2, 3);
+            Game game = new Game();
             char[,] gameGround = new char[3, 3];
             gameGround[0, 0] = 'X';
             gameGround[0, 1] = 'X';
@@ -115,7 +120,7 @@ namespace SuperMario.GameEngine.Test
             gameGround[2, 0] = 'X';
             gameGround[2, 1] = 'X';
             gameGround[2, 2] = 'X';
-            mario.ObjectCollisions(mario, gameGround, move);
+            mario.ObjectCollisions(mario, gameGround, move, game);
             Assert.IsFalse(move.CanMove);
         }
 
@@ -125,6 +130,7 @@ namespace SuperMario.GameEngine.Test
             Movement move = new Movement();
             move.UpButton = true;
             Mario mario = new Mario(2, 3);
+            Game game = new Game();
             char[,] gameGround = new char[3, 3];
             gameGround[0, 0] = ' ';
             gameGround[0, 1] = ' ';
@@ -135,7 +141,7 @@ namespace SuperMario.GameEngine.Test
             gameGround[2, 0] = ' ';
             gameGround[2, 1] = ' ';
             gameGround[2, 2] = ' ';
-            mario.ObjectCollisions(mario, gameGround, move);
+            mario.ObjectCollisions(mario, gameGround, move, game);
             Assert.IsTrue(move.CanMove);
         }
 

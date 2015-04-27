@@ -50,7 +50,7 @@ namespace SuperMario.ConsoleUI.ConsoleMovement
                         break;
 
                 }
-                _movement.CanMove = mario.ObjectCollisions(mario, backGround, _movement);
+                _movement.CanMove = mario.ObjectCollisions(mario, backGround, _movement, game);
                 if (_movement.CanMove == true)
                 {
                     switch (_keyInfo.Key)
@@ -65,7 +65,7 @@ namespace SuperMario.ConsoleUI.ConsoleMovement
 	                        }
                             bonus.CheckScore(mario, bonus.ListBonuses);
 	                        _backGroundDraw.DrawMario(mario);
-	                        Thread.Sleep(200);
+                            Thread.Sleep(100);
 	                        _backGroundDraw.RemoveMario(mario);
 	                        _movement.MoveDownAfterJump(mario);
                             bonus.CheckScore(mario, bonus.ListBonuses);
@@ -81,7 +81,6 @@ namespace SuperMario.ConsoleUI.ConsoleMovement
                             _movement.MarioMoving(mario);
                             _backGroundDraw.DrawMario(mario);
                             _movement.RightButton = false;
-                            mario.MarioFinished(mario, backGround, game);
                             break;
 
                         case ConsoleKey.LeftArrow:
