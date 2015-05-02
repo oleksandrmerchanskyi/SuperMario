@@ -17,11 +17,13 @@ using SuperMario.GameEngine.Сharacter;
 
 namespace SuperMario.ConsoleUI.ConsoleMovement
 {
+    //rename file to MovementAtConsole
     class MovementAtConsole
     {
         private ConsoleKeyInfo _keyInfo;
         private Movement _movement;
         private BackGroundDraw _backGroundDraw;
+        //extract switches to seperate functions
         public void CheckButton(Mario mario, char[,] backGround, Bonus bonus, SuperBonus superBonus, Game game, Bullet bullet, List<Bullet> listBullets)
         {
             _movement = new Movement();

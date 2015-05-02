@@ -155,6 +155,7 @@ namespace SuperMario.ConsoleUI.Map
             Console.Write(' ');
         }
 
+        //add ability to use it for maps on non-standard sizes
         public void WindowBorder()
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -174,6 +175,7 @@ namespace SuperMario.ConsoleUI.Map
             }
         }
 
+        //use switch instead of "if-else"
         public void FillTheArray()
         {
             var resourceMap = Properties.Resources.Map;
@@ -223,6 +225,7 @@ namespace SuperMario.ConsoleUI.Map
             }
         }
 
+        //code cloning. Create new function!
         public void GenerateBonuses()
         {
             _superBonus = new SuperBonus(5,2);
