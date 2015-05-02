@@ -22,6 +22,10 @@ namespace SuperMario.ConsoleUI.ConsoleMovement
         private ConsoleKeyInfo _keyInfo;
         private Movement _movement;
         private BackGroundDraw _backGroundDraw;
+
+        /*
+         * Review GY: метод приймає зайві параметри: Bullet bullet, List<Bullet> listBullets.
+         */
         public void CheckButton(Mario mario, char[,] backGround, Bonus bonus, SuperBonus superBonus, Game game, Bullet bullet, List<Bullet> listBullets)
         {
             _movement = new Movement();
@@ -65,6 +69,9 @@ namespace SuperMario.ConsoleUI.ConsoleMovement
 	                        }
                             bonus.CheckScore(mario, bonus.ListBonuses);
 	                        _backGroundDraw.DrawMario(mario);
+                            /*
+                             * Review GY: була попередня домовленість про невикористання конструкції Thread.Sleep
+                             */
                             Thread.Sleep(100);
 	                        _backGroundDraw.RemoveMario(mario);
 	                        _movement.MoveDownAfterJump(mario);

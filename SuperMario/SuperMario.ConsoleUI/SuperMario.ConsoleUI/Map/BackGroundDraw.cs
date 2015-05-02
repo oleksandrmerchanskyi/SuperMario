@@ -18,6 +18,10 @@ using Timer = System.Timers.Timer;
 
 namespace SuperMario.ConsoleUI.Map
 {
+    /*
+     * Review GY: на даний клас покладена відповідальність за відображення об'єктів, тому він не повинен містити логіки по їх створенню.
+     * Рекомендую винести всі об'єкти та колекції до класу, що інкапсулює логіку гри.
+     */
     class BackGroundDraw : IDraw
     {
         private Mario _mario;
@@ -223,6 +227,9 @@ namespace SuperMario.ConsoleUI.Map
             }
         }
 
+        /*
+         * Review GY: присутній дубляж коду.
+         */
         public void GenerateBonuses()
         {
             _superBonus = new SuperBonus(5,2);

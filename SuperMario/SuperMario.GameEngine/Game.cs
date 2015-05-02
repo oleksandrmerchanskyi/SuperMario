@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace SuperMario.GameEngine
 {
+    /*
+     * Review GY: на мою думку саме цей клас має інкапсулювати всю логіку гри та
+     * містити всі ігрові об'єкти.
+     */
     public class Game
     {
         public bool GameInProgress { get; set; }

@@ -11,6 +11,11 @@ using SuperMario.GameEngine.Shooting;
 
 namespace SuperMario.GameEngine.MovementLogic
 {
+    /*
+     * Review GY: на даний клас покладена надлишкова відповідальність.
+     * Рекомендую залишити лише властивості, а решту функціональності перенести у класи, 
+     * що володіють інформацією необхідною для їх реалізації.
+     */
     public class Movement
     {
         public bool LeftButton { get; set; }
@@ -29,6 +34,9 @@ namespace SuperMario.GameEngine.MovementLogic
             LeftButton = false;
         }
 
+        /*
+         * Review GY: рекомендую перенести даний метод до класу Mario
+         */
         public Mario MarioMoving(Mario mario)
         {
             if (LeftButton == true)
@@ -52,6 +60,9 @@ namespace SuperMario.GameEngine.MovementLogic
             return mario;
         }
 
+        /*
+         * Review GY: рекомендую перенести даний метод до класу Mario
+         */
         public Mario MoveDownAfterJump(Mario mario)
         {
             if (UpButton == false)
@@ -63,6 +74,9 @@ namespace SuperMario.GameEngine.MovementLogic
             return mario;
         }
 
+        /*
+         * Review GY: рекомендую перенести даний метод до класу, що інкапсулює логіку гри.
+         */
         public void CheckMove(Monster monster, List<Monster> listMonsters, char[,] gameGround)
         {
             foreach (var monstr in listMonsters)
@@ -78,6 +92,9 @@ namespace SuperMario.GameEngine.MovementLogic
             }
         }
 
+        /*
+         * Review GY: рекомендую перенести даний метод до класу, що інкапсулює логіку гри.
+         */
         public void MonsterMoving(Monster monster, List<Monster> listMonsters, char[,] gameGround, Mario mario, Game game, List<Bullet> listBullets)
         {
             CheckMove(monster, listMonsters, gameGround);
@@ -107,6 +124,9 @@ namespace SuperMario.GameEngine.MovementLogic
             }
         }
 
+        /*
+         * Review GY: рекомендую перенести даний метод до класу, що інкапсулює логіку гри.
+         */
         public void MonsterLife(Monster monster, List<Monster> listMonsters, List<Bullet> listBullets)
         {
             foreach (var monstr in listMonsters)
@@ -115,6 +135,9 @@ namespace SuperMario.GameEngine.MovementLogic
                 {
                     if (monstr.X == bullet.X + 1 && monstr.Y == bullet.Y)
                     {
+                        /*
+                         * Review GY: видалення елементів з колекції, по котрій проходить foreach може призвести до виключної ситуації
+                         */
                         listMonsters.Remove(monstr);
                         return;
                     }
