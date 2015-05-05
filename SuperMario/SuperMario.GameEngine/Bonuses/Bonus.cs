@@ -17,6 +17,11 @@ namespace SuperMario.GameEngine.Bonuses
 
         public int BonusScore { get; set; }
 
+        /*
+         * Review GY: створення колекцій об'єктів класу в самому класі допустимо(патерн Composit - Gof),
+         * але в даному випадку не виправдане.
+         * Рекомендую перенести колекцію до класу, котрий інкапсулює логіку гри.
+         */
         public List<Bonus> ListBonuses { get; set; }
 
         public Bonus(int x, int y)
@@ -26,6 +31,13 @@ namespace SuperMario.GameEngine.Bonuses
             CountOfBonuses = 0;
             BonusScore = 0;
         }
+
+        /*
+         * Review GY: клас не містить достатньо інформації для реалізації даної функціональності (вся необхідна інформація передається в якості параметрів).
+         * Рекомендую перемістити метод до класу, котрий інкапсулює логіку гри.
+         * Цей метод можна замінити на метод для перевірки співпадіння координат Mario та конкретної кулі, координати кулі доступні через this.
+         * public bool CheckScore(int x, int y)
+         */
         public void CheckScore(Mario mario, List<Bonus> listBonuses)
         {
             ListBonuses = listBonuses;

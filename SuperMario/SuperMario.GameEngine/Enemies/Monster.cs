@@ -14,6 +14,11 @@ namespace SuperMario.GameEngine.Enemies
 
         public bool Life { get; set; }
 
+        /*
+         * Review GY: створення колекцій об'єктів класу в самому класі допустимо(патерн Composit - Gof),
+         * але в даному випадку не виправдане.
+         * Рекомендую перенести колекцію до класу, котрий інкапсулює логіку гри.
+         */
         public List<Monster> ListMonsters { get; set; }
 
         public bool LeftOrRight { get; set; }

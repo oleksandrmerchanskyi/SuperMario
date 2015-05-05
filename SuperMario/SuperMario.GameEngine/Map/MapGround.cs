@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace SuperMario.GameEngine.Map
 {
-    //rename to MapGround
     public class MapGraound
     {
         public int Width { get; set; }

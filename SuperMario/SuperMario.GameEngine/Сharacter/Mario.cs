@@ -33,6 +33,13 @@ namespace SuperMario.GameEngine.Сharacter
             LeftOrRight = true; //right = true, left = false
         }
 
+        /*
+         * Review GY: об'єкт mario в межах класу Mario доступний через this, тому передавати його в якості параметру не потрібно.
+         * Метод використовує лише координати superBonus, тому краще буде передати їх в якості параметрів.
+         * Клас Mario не повинен відповідати за збільшення бонусів bonus.BonusScore += 200;
+         * Дана опереція має проводитись ззовні та залежати від результату роботи MarioCanShot.
+         * Орієнтовний прототип методу: public bool MarioCanShot(int x, int y)
+         */
         public void MarioCanShot(Mario mario, SuperBonus superBonus,Bonus bonus)
         {
             if (mario.X == superBonus.X && mario.Y == superBonus.Y)
@@ -42,11 +49,20 @@ namespace SuperMario.GameEngine.Сharacter
             }
         }
 
+        /*
+         * Review GY: рекомендую перенести цей метод до класу, що інкапсулює логіку гри.
+         * Клас Mario не повинен змінювати об'єкти або ж колекції, котрі йому не належать.
+         */
         public void MarioShoot(Mario mario, List<Bullet> listBullets)
         {
             listBullets.Add(new Bullet(mario.X+1, mario.Y)); 
         }
 
+        /*
+         * Review GY: рекомендую перенести цей метод до класу, що інкапсулює логіку гри.
+         * Клас Mario не володіє достатньою інформацією для реалізації даної функціональності.
+         * Рекомендую переглянути інформацію за посиланням - http://en.wikipedia.org/wiki/GRASP_(object-oriented_design)#Information_Expert
+         */
         public bool ObjectCollisions(Mario mario, char[,] gameGround, Movement movement, Game game)
         {
             if (movement.RightButton == true)
@@ -91,6 +107,11 @@ namespace SuperMario.GameEngine.Сharacter
             return movement.CanMove;
         }
 
+        /*
+         * Review GY: рекомендую перенести цей метод до класу, що інкапсулює логіку гри.
+         * Клас Mario не володіє достатньою інформацією для реалізації даної функціональності.
+         * Рекомендую переглянути інформацію за посиланням - http://en.wikipedia.org/wiki/GRASP_(object-oriented_design)#Information_Expert
+         */
         public int EarthUnderfoot(Mario mario, char[,] gameGround, Movement movement)
         {
             if (gameGround[mario.X, mario.Y] != 'X')
@@ -126,6 +147,11 @@ namespace SuperMario.GameEngine.Сharacter
             return mario.Y;
         }
 
+        /*
+         * Review GY: рекомендую перенести цей метод до класу, що інкапсулює логіку гри.
+         * Клас Mario не володіє достатньою інформацією для реалізації даної функціональності.
+         * Рекомендую переглянути інформацію за посиланням - http://en.wikipedia.org/wiki/GRASP_(object-oriented_design)#Information_Expert
+         */
         public bool CheckLife(Mario mario, List<Monster> listMonsters, Game game)
         {
             foreach (var monster in listMonsters)
