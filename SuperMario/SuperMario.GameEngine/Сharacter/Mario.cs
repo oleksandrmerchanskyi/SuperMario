@@ -77,6 +77,10 @@ namespace SuperMario.GameEngine.Сharacter
                 {
                     movement.CanMove = false;
                 }
+                else if (gameGround[mario.X, mario.Y] == 'Q')
+                {
+                    movement.CanMove = false;
+                }
                 else
                 {
                     movement.CanMove = true;
@@ -85,6 +89,10 @@ namespace SuperMario.GameEngine.Сharacter
             else if (movement.LeftButton == true)
             {
                 if (gameGround[mario.X - 2, mario.Y - 1] == 'X')
+                {
+                    movement.CanMove = false;
+                }
+                else if (gameGround[mario.X-2, mario.Y] == 'Q')
                 {
                     movement.CanMove = false;
                 }
@@ -121,7 +129,7 @@ namespace SuperMario.GameEngine.Сharacter
                     if (gameGround[mario.X, mario.Y] != 'X')
                     {
                         mario.X += 1;
-                        while (gameGround[mario.X, mario.Y] != 'X')
+                        while (gameGround[mario.X - 1, mario.Y] != 'X')
                         {
                             mario.Y++;
                         }
@@ -133,14 +141,17 @@ namespace SuperMario.GameEngine.Сharacter
             {
                 if (movement.LeftButton == true)
                 {
-                    if (gameGround[mario.X - 2, mario.Y] != 'X')
+                    if (gameGround[mario.X - 2, mario.Y] != 'Q')
                     {
-                        mario.X -= 1;
-                        while (gameGround[mario.X - 2, mario.Y] != 'X')
+                        if (gameGround[mario.X - 2, mario.Y] != 'X')
                         {
-                            mario.Y++;
+                            mario.X -= 1;
+                            while (gameGround[mario.X - 2, mario.Y] != 'X')
+                            {
+                                mario.Y++;
+                            }
+                            return mario.Y;
                         }
-                        return mario.Y;
                     }
                 }
             }

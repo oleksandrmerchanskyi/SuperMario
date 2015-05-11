@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleMovement\Movement.cs" />
+    <Compile Include="ConsoleMovement\MovementAtConsole.cs" />
     <Compile Include="Map\BackGroundDraw.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

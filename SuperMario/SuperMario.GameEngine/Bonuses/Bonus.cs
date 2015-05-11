@@ -17,6 +17,8 @@ namespace SuperMario.GameEngine.Bonuses
 
         public int BonusScore { get; set; }
 
+        public bool CanDraw { get; set; }
+
         /*
          * Review GY: створення колекцій об'єктів класу в самому класі допустимо(патерн Composit - Gof),
          * але в даному випадку не виправдане.
@@ -47,6 +49,27 @@ namespace SuperMario.GameEngine.Bonuses
                 {
                     ListBonuses.Remove(ListBonuses[i]);
                     BonusScore += 50;
+                }
+            }
+        }
+
+        public void GenerateBonus(Bonus bonus, char[,] gameGround)
+        {      ListBonuses = new List<Bonus>();
+            for (int i = 0; i < bonus.CountOfBonuses; i++)
+            {
+                ListBonuses.Add(new Bonus(bonus.X, bonus.Y));
+                bonus.X += 2;
+                if (gameGround[ListBonuses[i].X - 1, ListBonuses[i].Y - 1] != 'X')
+                {
+                    CanDraw = true;
+                }
+                else if (gameGround[ListBonuses[i].X - 1, ListBonuses[i].Y - 1] != 'Q')
+                {
+                    CanDraw = true;
+                }
+                else
+                {
+                    CanDraw = false;
                 }
             }
         }
