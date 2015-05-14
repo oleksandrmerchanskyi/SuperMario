@@ -40,38 +40,34 @@ namespace SuperMario.GameEngine.Bonuses
          * Цей метод можна замінити на метод для перевірки співпадіння координат Mario та конкретної кулі, координати кулі доступні через this.
          * public bool CheckScore(int x, int y)
          */
-        public void CheckScore(Mario mario, List<Bonus> listBonuses)
+        public void CheckScore(Mario mario, List<Bonus> listBonuses, char [,] gameGround)
         {
             ListBonuses = listBonuses;
-            for (int i = 0; i < ListBonuses.Count; i++)
+            foreach (var b in listBonuses)
             {
-                if (mario.X == ListBonuses[i].X && mario.Y == ListBonuses[i].Y)
+                if (mario.X == b.X && mario.Y == b.Y)
                 {
-                    ListBonuses.Remove(ListBonuses[i]);
+                    ListBonuses.Remove(b);
                     BonusScore += 50;
+                    gameGround[b.X - 1, b.Y - 1] = 'Z';
+                    return;
                 }
             }
         }
 
-        public void GenerateBonus(Bonus bonus, char[,] gameGround)
+        public List<Bonus> GenerateBonus(Bonus bonus, char[,] gameGround)
         {      ListBonuses = new List<Bonus>();
-            for (int i = 0; i < bonus.CountOfBonuses; i++)
+            for (int i = 0; i < gameGround.GetLength(1); i++)
             {
-                ListBonuses.Add(new Bonus(bonus.X, bonus.Y));
-                bonus.X += 2;
-                if (gameGround[ListBonuses[i].X - 1, ListBonuses[i].Y - 1] != 'X')
+                for (int j = 0; j < gameGround.GetLength(0); j++)
                 {
-                    CanDraw = true;
-                }
-                else if (gameGround[ListBonuses[i].X - 1, ListBonuses[i].Y - 1] != 'Q')
-                {
-                    CanDraw = true;
-                }
-                else
-                {
-                    CanDraw = false;
+                    if (gameGround[j, i] == 'B')
+                    {
+                        ListBonuses.Add(new Bonus(j+1, i+1));
+                    }
                 }
             }
+            return ListBonuses;
         }
     }
 }

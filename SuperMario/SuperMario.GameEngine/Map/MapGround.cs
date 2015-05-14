@@ -17,8 +17,9 @@ namespace SuperMario.GameEngine.Map
             Width = width;
             Height = height;
         }
-        public void FillTheArray(char[,] gameGround)
+        public char[,] FillTheArray()
         {
+            char[,] gameGround = new char[this.Width,this.Height];
             var resourceMap = Properties.Resources.Map;
             char[] mapArray = resourceMap.ToCharArray();
             int counter = 0;
@@ -58,11 +59,14 @@ namespace SuperMario.GameEngine.Map
                     {
                         gameGround[j, i] += mapArray[counter];
                     }
+                    else if (mapArray[counter] == 'B')
+                    {
+                        gameGround[j, i] += mapArray[counter];
+                    }
                     counter++;
-
                 }
-
             }
+            return gameGround;
         }
     }
 }
