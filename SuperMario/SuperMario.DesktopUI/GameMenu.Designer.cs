@@ -34,7 +34,6 @@ namespace SuperMario.DesktopUI
             this.btnStartGame = new System.Windows.Forms.Button();
             this.btnControls = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.StartPosition = FormStartPosition.CenterScreen;
             this.SuspendLayout();
             // 
             // btnStartGame
@@ -90,21 +89,24 @@ namespace SuperMario.DesktopUI
             this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
             this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             // 
-            // Menu
+            // GameMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SuperMario.DesktopUI.Properties.Resources.SuperMarioBackgroundForMenu;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnControls);
             this.Controls.Add(this.btnStartGame);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(800, 600);
             this.MinimumSize = new System.Drawing.Size(800, 600);
-            this.Name = "Menu";
+            this.Name = "GameMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Super Mario";
+            this.Load += new System.EventHandler(this.GameMenu_Load);
             this.ResumeLayout(false);
 
         }

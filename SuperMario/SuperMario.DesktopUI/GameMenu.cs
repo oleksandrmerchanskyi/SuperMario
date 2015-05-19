@@ -57,6 +57,7 @@ namespace SuperMario.DesktopUI
         {
             this.Enabled = false;
             this.Visible = false;
+            btnControls.NotifyDefault(false);
             GameProcess gameProcess = new GameProcess();
             gameProcess.Show();
         }
@@ -70,9 +71,15 @@ namespace SuperMario.DesktopUI
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            btnControls.NotifyDefault(false);
             Application.Exit();
         }
 
         #endregion
+
+        private void GameMenu_Load(object sender, EventArgs e)
+        {
+            this.Icon = Properties.Resources.mario_icon;
+        }
     }
 }

@@ -43,7 +43,6 @@
     <Compile Include="Bonuses\SuperBonus.cs" />
     <Compile Include="Enemies\Monster.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="Interfaces\IDraw.cs" />
     <Compile Include="Map\MapGround.cs" />
     <Compile Include="MovementLogic\Movement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -52,7 +51,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Shooting\Bullet.cs" />
+    <Compile Include="Arsenal\Sword.cs" />
     <Compile Include="Сharacter\Mario.cs" />
   </ItemGroup>
   <ItemGroup>

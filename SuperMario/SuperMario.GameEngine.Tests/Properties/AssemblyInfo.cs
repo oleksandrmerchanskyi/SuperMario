@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SuperMario.GameEngine.Test")]
+[assembly: AssemblyTitle("SuperMario.GameEngine.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Win-Yagd")]
-[assembly: AssemblyProduct("SuperMario.GameEngine.Test")]
+[assembly: AssemblyProduct("SuperMario.GameEngine.Tests")]
 [assembly: AssemblyCopyright("Copyright © Win-Yagd 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1448a412-8687-45e8-bd5a-ec5917502388")]
+[assembly: Guid("d1d79a8e-7fe1-4167-a09a-695d26325173")]
 
 // Version information for an assembly consists of the following four values:
 //

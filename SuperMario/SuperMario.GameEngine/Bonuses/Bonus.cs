@@ -33,29 +33,25 @@ namespace SuperMario.GameEngine.Bonuses
             CountOfBonuses = 0;
             BonusScore = 0;
         }
-
-        /*
-         * Review GY: клас не містить достатньо інформації для реалізації даної функціональності (вся необхідна інформація передається в якості параметрів).
-         * Рекомендую перемістити метод до класу, котрий інкапсулює логіку гри.
-         * Цей метод можна замінити на метод для перевірки співпадіння координат Mario та конкретної кулі, координати кулі доступні через this.
-         * public bool CheckScore(int x, int y)
-         */
-        public void CheckScore(Mario mario, List<Bonus> listBonuses, char [,] gameGround)
+        public void CheckScore(int x, int y, SuperBonus superBonus, char [,] gameGround)
         {
-            ListBonuses = listBonuses;
-            foreach (var b in listBonuses)
+            foreach (var b in ListBonuses)
             {
-                if (mario.X == b.X && mario.Y == b.Y)
+                if (x == b.X && y == b.Y)
                 {
                     ListBonuses.Remove(b);
                     BonusScore += 50;
                     gameGround[b.X - 1, b.Y - 1] = 'Z';
-                    return;
+                    break;
                 }
+            }
+            if (x == superBonus.X && y == superBonus.Y)
+            {
+               BonusScore += 200;
             }
         }
 
-        public List<Bonus> GenerateBonus(Bonus bonus, char[,] gameGround)
+        public List<Bonus> GenerateBonus(char[,] gameGround)
         {      ListBonuses = new List<Bonus>();
             for (int i = 0; i < gameGround.GetLength(1); i++)
             {

@@ -20,6 +20,7 @@ namespace SuperMario.DesktopUI
 
         private void ScoreBoard_Load(object sender, EventArgs e)
         {
+            this.Icon = Properties.Resources.mario_icon;
         }
 
         private void btnPlayAgain_MouseEnter(object sender, EventArgs e)

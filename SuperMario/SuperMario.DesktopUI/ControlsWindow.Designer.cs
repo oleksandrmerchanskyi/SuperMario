@@ -30,7 +30,18 @@ namespace SuperMario.DesktopUI
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(549, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(20, 20);
+            this.btnExit.TabIndex = 0;
+            this.btnExit.Text = "X";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // ControlsWindow
             // 
@@ -40,13 +51,18 @@ namespace SuperMario.DesktopUI
             this.BackgroundImage = global::SuperMario.DesktopUI.Properties.Resources.BackgroundForControls;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(584, 411);
+            this.Controls.Add(this.btnExit);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ControlsWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Controls";
+            this.Load += new System.EventHandler(this.ControlsWindow_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private Button btnExit;
     }
 }

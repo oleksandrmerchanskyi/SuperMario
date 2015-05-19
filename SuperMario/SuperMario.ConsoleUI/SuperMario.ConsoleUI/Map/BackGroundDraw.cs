@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SuperMario.ConsoleUI.ConsoleMovement;
 using SuperMario.GameEngine;
-using SuperMario.GameEngine.Interfaces;
 using SuperMario.GameEngine.MovementLogic;
 using SuperMario.GameEngine.Сharacter;
 using SuperMario.GameEngine.Bonuses;
@@ -14,7 +14,7 @@ namespace SuperMario.ConsoleUI.Map
      * Review GY: на даний клас покладена відповідальність за відображення об'єктів, тому він не повинен містити логіки по їх створенню.
      * Рекомендую винести всі об'єкти та колекції до класу, що інкапсулює логіку гри.
      */
-    class BackGroundDraw : IDraw
+    class BackGroundDraw
     {
         private Mario _mario;
         private Movement _movement;
@@ -29,9 +29,11 @@ namespace SuperMario.ConsoleUI.Map
         public void GameStart()
         {
             _game = new Game();
+            _bonus = new Bonus(1, 1);
             _movement = new Movement();
             ViewMap();
             MarioInit();
+            
             _movementAtConsole = new MovementAtConsole();
             while (_game.GameInProgress)
             {
@@ -73,13 +75,12 @@ namespace SuperMario.ConsoleUI.Map
             WindowBorder();
             MapInit();
             DrawMap();
-            GenerateBonuses();
         }
 
         public void MapInit()
         {
             _map = new MapGraound(77,23);
-            _gameGround = new char[_map.Width,_map.Height];
+            _gameGround = _map.FillTheArray();
         }
 
         public void MarioInit()
@@ -106,7 +107,6 @@ namespace SuperMario.ConsoleUI.Map
 
         public void DrawMap()
         {
-            _map.FillTheArray(_gameGround);
             for (int i = 0; i < _gameGround.GetLength(1); i++)
             {
                 for (int j = 0; j < _gameGround.GetLength(0); j++)
@@ -125,8 +125,28 @@ namespace SuperMario.ConsoleUI.Map
                     {
                         Console.ForegroundColor = ConsoleColor.DarkGray;
                     }
+                    else if (_gameGround[j, i] == 'B')
+                    {
+                        _bonus.ListBonuses = new List<Bonus>();
+                        _bonus.ListBonuses.Add(new Bonus(j,i));
+                    }
+                    else if (_gameGround[j, i] == 'B')
+                    {
+                        _bonus.ListBonuses = new List<Bonus>();
+                        _bonus.ListBonuses.Add(new Bonus(j, i));
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.SetCursorPosition(_bonus.ListBonuses[_bonusCounter].X, _bonus.ListBonuses[_bonusCounter].Y);
+                        Console.Write('$');
+                        _bonusCounter++;
+                    }
+                    else if (_gameGround[j, i] == 'S')
+                    {
+                        _superBonus = new SuperBonus(j+1,i+1);
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.SetCursorPosition(_superBonus.X, _superBonus.Y);
+                        Console.Write('@');
+                    }
                     Console.Write(_gameGround[j, i]);
-
                 }
             }
         }
@@ -149,95 +169,6 @@ namespace SuperMario.ConsoleUI.Map
                 Console.Write("#");
             }
         }
-        /*
-         * Review GY: присутній дубляж коду.
-         */
-        public void GenerateBonuses()
-        {
-            _superBonus = new SuperBonus(5,2);
-            DrawSuperBonus();
-            _bonus = new Bonus(2, 2) {CountOfBonuses = 30};
-            Bonus bonus = new Bonus(2, 5) { CountOfBonuses = 20 };
-            _bonus.GenerateBonus(_bonus, _gameGround);
-            _bonus.GenerateBonus(bonus, _gameGround);
-            for (int i = 0; i < _bonus.ListBonuses.Count(); i++)
-            {
-                if (_bonus.CanDraw)
-                {
-                    DrawBonuses();
-                }
-            }
-            //_bonus = new Bonus(2, 5) {CountOfBonuses = 20};
-            //for (int i = 0; i < _bonus.CountOfBonuses; i++)
-            //{
-            //    listBonuses.Add(new Bonus(_bonus.X, _bonus.Y));
-            //    _bonus.ListBonuses = listBonuses;
-            //    _bonus.X += 2;
-            //    if(_gameGround[_bonus.X-1, _bonus.Y-1]!='X')
-            //    { 
-            //        DrawBonuses();
-            //    }
-            //}
-            //_bonus = new Bonus(2, 8) { CountOfBonuses = 29 };
-            //for (int i = 0; i < _bonus.CountOfBonuses; i++)
-            //{
-            //    listBonuses.Add(new Bonus(_bonus.X, _bonus.Y));
-            //    _bonus.ListBonuses = listBonuses;
-            //    _bonus.X += 2;
-            //    if (_gameGround[_bonus.X - 1, _bonus.Y - 1] != 'X')
-            //    {
-            //        DrawBonuses();
-            //    }
-            //}
-            //_bonus = new Bonus(20, 12) { CountOfBonuses = 20 };
-            //for (int i = 0; i < _bonus.CountOfBonuses; i++)
-            //{
-            //    listBonuses.Add(new Bonus(_bonus.X, _bonus.Y));
-            //    _bonus.ListBonuses = listBonuses;
-            //    _bonus.X += 2;
-            //    if (_gameGround[_bonus.X - 1, _bonus.Y - 1] != 'X')
-            //    {
-            //        DrawBonuses();
-            //    }
-            //}
-            //_bonus = new Bonus(2, 17) { CountOfBonuses = 15 };
-            //for (int i = 0; i < _bonus.CountOfBonuses; i++)
-            //{
-            //    listBonuses.Add(new Bonus(_bonus.X, _bonus.Y));
-            //    _bonus.ListBonuses = listBonuses;
-            //    _bonus.X += 2;
-            //    if (_gameGround[_bonus.X - 1, _bonus.Y - 1] != 'X')
-            //    {
-            //        DrawBonuses();
-            //    }
-            //}
-            //_bonus = new Bonus(2, 21) { CountOfBonuses = 30 };
-            //for (int i = 0; i < _bonus.CountOfBonuses; i++)
-            //{
-            //    listBonuses.Add(new Bonus(_bonus.X, _bonus.Y));
-            //    _bonus.ListBonuses = listBonuses;
-            //    _bonus.X += 2;
-            //    if (_gameGround[_bonus.X - 1, _bonus.Y - 1] != 'X')
-            //    {
-            //        DrawBonuses();
-            //    }
-            //}
-            //_bonus.ListBonuses = listBonuses;
-        }
 
-        public void DrawBonuses()
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.SetCursorPosition(_bonus.ListBonuses[_bonusCounter].X,_bonus.ListBonuses[_bonusCounter].Y);
-            Console.Write('$');
-            _bonusCounter++;
-        }
-
-        public void DrawSuperBonus()
-        {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.SetCursorPosition(_superBonus.X, _superBonus.Y);
-            Console.Write('@');
-        }
     }
 }

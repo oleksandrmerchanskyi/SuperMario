@@ -73,6 +73,16 @@ namespace SuperMario.DesktopUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BackgroundProcess {
+            get {
+                object obj = ResourceManager.GetObject("BackgroundProcess", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap backToMenu {
             get {
                 object obj = ResourceManager.GetObject("backToMenu", resourceCulture);
@@ -86,6 +96,16 @@ namespace SuperMario.DesktopUI.Properties {
         internal static System.Drawing.Bitmap backToMenuHover {
             get {
                 object obj = ResourceManager.GetObject("backToMenuHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap block {
+            get {
+                object obj = ResourceManager.GetObject("block", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,6 +213,36 @@ namespace SuperMario.DesktopUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ghost_right {
+            get {
+                object obj = ResourceManager.GetObject("ghost_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Mario_Gun {
+            get {
+                object obj = ResourceManager.GetObject("Mario_Gun", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon mario_icon {
+            get {
+                object obj = ResourceManager.GetObject("mario_icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MarioFront {
             get {
                 object obj = ResourceManager.GetObject("MarioFront", resourceCulture);
@@ -253,9 +303,49 @@ namespace SuperMario.DesktopUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap super_bonus {
+            get {
+                object obj = ResourceManager.GetObject("super_bonus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SuperMarioBackgroundForMenu {
             get {
                 object obj = ResourceManager.GetObject("SuperMarioBackgroundForMenu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sword_1 {
+            get {
+                object obj = ResourceManager.GetObject("sword_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sword_2 {
+            get {
+                object obj = ResourceManager.GetObject("sword_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sword_3 {
+            get {
+                object obj = ResourceManager.GetObject("sword_3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMario.DesktopUI", "..\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMario.GameEngine", "..\SuperMario.GameEngine\SuperMario.GameEngine.csproj", "{62E57DE0-5644-4695-A1BF-48A423FA05E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMario.GameEngine.Test", "..\SuperMario.GameEngine.Test\SuperMario.GameEngine.Test.csproj", "{1EB0A1B7-0692-47D4-A184-8E6DF346D9D3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMario.GameEngine.Tests", "..\SuperMario.GameEngine.Tests\SuperMario.GameEngine.Tests.csproj", "{F1C7A204-7E5E-4A68-95D8-659B47B46130}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SuperMario.Installer", "..\SuperMario.Installer\SuperMario.Installer.vdproj", "{99ED4D69-E24B-4283-A471-440976CD3948}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,22 +19,25 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8D771EB0-F9A8-4B20-AA73-1BBECC6FED06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8D771EB0-F9A8-4B20-AA73-1BBECC6FED06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D771EB0-F9A8-4B20-AA73-1BBECC6FED06}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{8D771EB0-F9A8-4B20-AA73-1BBECC6FED06}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{8D771EB0-F9A8-4B20-AA73-1BBECC6FED06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D771EB0-F9A8-4B20-AA73-1BBECC6FED06}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FB9ADB66-84BD-4E3B-998E-B31D23B09EB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FB9ADB66-84BD-4E3B-998E-B31D23B09EB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB9ADB66-84BD-4E3B-998E-B31D23B09EB5}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{FB9ADB66-84BD-4E3B-998E-B31D23B09EB5}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{FB9ADB66-84BD-4E3B-998E-B31D23B09EB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB9ADB66-84BD-4E3B-998E-B31D23B09EB5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{62E57DE0-5644-4695-A1BF-48A423FA05E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{62E57DE0-5644-4695-A1BF-48A423FA05E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62E57DE0-5644-4695-A1BF-48A423FA05E9}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{62E57DE0-5644-4695-A1BF-48A423FA05E9}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{62E57DE0-5644-4695-A1BF-48A423FA05E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62E57DE0-5644-4695-A1BF-48A423FA05E9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1EB0A1B7-0692-47D4-A184-8E6DF346D9D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1EB0A1B7-0692-47D4-A184-8E6DF346D9D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1EB0A1B7-0692-47D4-A184-8E6DF346D9D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1EB0A1B7-0692-47D4-A184-8E6DF346D9D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1C7A204-7E5E-4A68-95D8-659B47B46130}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{F1C7A204-7E5E-4A68-95D8-659B47B46130}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{F1C7A204-7E5E-4A68-95D8-659B47B46130}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1C7A204-7E5E-4A68-95D8-659B47B46130}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99ED4D69-E24B-4283-A471-440976CD3948}.Debug|Any CPU.ActiveCfg = Release
+		{99ED4D69-E24B-4283-A471-440976CD3948}.Debug|Any CPU.Build.0 = Release
+		{99ED4D69-E24B-4283-A471-440976CD3948}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,7 +11,7 @@ using SuperMario.GameEngine.Bonuses;
 using SuperMario.GameEngine.Enemies;
 using SuperMario.GameEngine.Map;
 using SuperMario.GameEngine.MovementLogic;
-using SuperMario.GameEngine.Shooting;
+using SuperMario.GameEngine.Arsenal;
 using SuperMario.GameEngine.Сharacter;
 
 
@@ -31,7 +31,7 @@ namespace SuperMario.ConsoleUI.ConsoleMovement
             _movement = new Movement();
             _backGroundDraw = new BackGroundDraw();
             _keyInfo = Console.ReadKey(true);
-            if(game.GameInProgress == true)
+            if(game.GameInProgress)
             {
                 switch (_keyInfo.Key)
                 {
@@ -54,48 +54,48 @@ namespace SuperMario.ConsoleUI.ConsoleMovement
                         break;
 
                 }
-                _movement.CanMove = mario.ObjectCollisions(mario, backGround, _movement, game);
-                if (_movement.CanMove == true)
+                _movement.CanMove = mario.ObjectCollisions(backGround, _movement, game);
+                if (_movement.CanMove)
                 {
                     switch (_keyInfo.Key)
                     {
                         case ConsoleKey.UpArrow:
                             _movement.UpButton = true;
 	                        _backGroundDraw.RemoveMario(mario);
-	                        _movement.MarioMoving(mario);
+	                        mario.MarioMoving(_movement);
 	                        if (mario.CanShot == false)
 	                        {
-	                            mario.MarioCanShot(mario, superBonus, bonus);
+	                            mario.MarioCanShot(mario.X, mario.Y, backGround);
 	                        }
-                            bonus.CheckScore(mario, bonus.ListBonuses);
+                            bonus.CheckScore(mario.X, mario.Y, superBonus, backGround);
 	                        _backGroundDraw.DrawMario(mario);
                             /*
                              * Review GY: була попередня домовленість про невикористання конструкції Thread.Sleep
                              */
                             Thread.Sleep(100);
 	                        _backGroundDraw.RemoveMario(mario);
-	                        _movement.MoveDownAfterJump(mario);
-                            bonus.CheckScore(mario, bonus.ListBonuses);
+	                        mario.MoveDownAfterJump(_movement);
+                            bonus.CheckScore(mario.X, mario.Y, superBonus, backGround);
 	                        _backGroundDraw.DrawMario(mario);
                             _movement.UpButton = false;
                             break;
 
 
                         case ConsoleKey.RightArrow:
-                            mario.LeftOrRight = true;
+                            mario.IsRight = true;
                             _backGroundDraw.RemoveMario(mario);
-                            mario.EarthUnderfoot(mario, backGround, _movement);
-                            _movement.MarioMoving(mario);
+                            bonus.CheckScore(mario.X, mario.Y, superBonus, backGround);
+                            mario.MarioMoving(_movement);
                             _backGroundDraw.DrawMario(mario);
                             _movement.RightButton = false;
                             break;
 
                         case ConsoleKey.LeftArrow:
-                            mario.LeftOrRight = false;
+                            mario.IsRight = false;
                             _backGroundDraw.RemoveMario(mario);
-                            mario.EarthUnderfoot(mario, backGround, _movement);
-                            _movement.MarioMoving(mario);
-                            bonus.CheckScore(mario, bonus.ListBonuses);
+                            mario.EarthUnderfoot(backGround, _movement);
+                            mario.MarioMoving(_movement);
+                            bonus.CheckScore(mario.X, mario.Y, superBonus, backGround);
                             _backGroundDraw.DrawMario(mario);
                             _movement.LeftButton = false;
                             break;

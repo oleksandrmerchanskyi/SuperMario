@@ -63,6 +63,10 @@ namespace SuperMario.GameEngine.Map
                     {
                         gameGround[j, i] += mapArray[counter];
                     }
+                    else if (mapArray[counter] == 'S')
+                    {
+                        gameGround[j, i] += mapArray[counter];
+                    }
                     counter++;
                 }
             }
