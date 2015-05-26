@@ -26,7 +26,14 @@ namespace SuperMario.DesktopUI
         private SoundPlayer _soundPlayer;
         private Monster _monster;
         private Sword _sword;
+        /*
+         * ВВ: тут краще використовувати System.Windows.Forms.Timer,
+         * оскільки він працює у головному потоці програми
+         */
         private Timer _timer;
+        /*
+         * ВВ: цей делегат слід видалити, оскільки він не використовується
+         */
         public delegate void CloseDelagate();
 
         #region Const
