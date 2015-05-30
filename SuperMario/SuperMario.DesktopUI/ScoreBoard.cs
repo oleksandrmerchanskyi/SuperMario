@@ -42,12 +42,16 @@ namespace SuperMario.DesktopUI
         {
             btnGoToMenu.BackgroundImage = Properties.Resources.backToMenu;
         }
-
+        /*
+         * ВВ: порушення конвенції іменування обробника події
+         */
         private void button1_MouseLeave(object sender, EventArgs e)
         {
             btnExitGame.BackgroundImage = Properties.Resources.exitGame;
         }
-
+        /*
+         * ВВ: порушення конвенції іменування обробника події
+         */
         private void button1_MouseEnter(object sender, EventArgs e)
         {
             btnExitGame.BackgroundImage = Properties.Resources.exitGameHover;
