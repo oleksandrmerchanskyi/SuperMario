@@ -10,6 +10,9 @@ namespace SuperMario.GameEngine
      * Review GY: на мою думку саме цей клас має інкапсулювати всю логіку гри та
      * містити всі ігрові об'єкти.
      */
+    /*
+     * ВВ: цілком погоджуюся із попереднім коментарем.
+     */
     public class Game
     {
         public bool GameInProgress { get; set; }
