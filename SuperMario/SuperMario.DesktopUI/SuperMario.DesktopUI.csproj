@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>mario-icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,14 +47,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="ControlsWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ControlsWindow.Designer.cs">
+      <DependentUpon>ControlsWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Drawing.cs" />
+    <Compile Include="GameProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameProcess.Designer.cs">
+      <DependentUpon>GameProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameMenu.Designer.cs">
+      <DependentUpon>GameMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScoreBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScoreBoard.Designer.cs">
+      <DependentUpon>ScoreBoard.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ControlsWindow.resx">
+      <DependentUpon>ControlsWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameProcess.resx">
+      <DependentUpon>GameProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameMenu.resx">
+      <DependentUpon>GameMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -60,7 +91,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ScoreBoard.resx">
+      <DependentUpon>ScoreBoard.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -73,6 +108,109 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SuperMario.GameEngine\SuperMario.GameEngine.csproj">
+      <Project>{62e57de0-5644-4695-a1bf-48a423fa05e9}</Project>
+      <Name>SuperMario.GameEngine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnStartGame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnControls.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnControlsHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnStartGameHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnExit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnExitHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TestBlock1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Door.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Princess.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MarioFront.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TestBlock2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CongText.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayAgainHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayAgain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backToMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backToMenuHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exitGame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exitGameHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScoreBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mario_Gun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sword_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sword_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sword_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\super_bonus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundForControls.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SuperMarioBackgroundForMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundProcess.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\block.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\marioRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="mario-icon.ico" />
+    <None Include="Resources\mario-icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

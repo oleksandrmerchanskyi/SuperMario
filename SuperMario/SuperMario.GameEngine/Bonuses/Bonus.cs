@@ -17,6 +17,8 @@ namespace SuperMario.GameEngine.Bonuses
 
         public int BonusScore { get; set; }
 
+        public bool CanDraw { get; set; }
+
         /*
          * Review GY: створення колекцій об'єктів класу в самому класі допустимо(патерн Composit - Gof),
          * але в даному випадку не виправдане.
@@ -31,24 +33,37 @@ namespace SuperMario.GameEngine.Bonuses
             CountOfBonuses = 0;
             BonusScore = 0;
         }
-
-        /*
-         * Review GY: клас не містить достатньо інформації для реалізації даної функціональності (вся необхідна інформація передається в якості параметрів).
-         * Рекомендую перемістити метод до класу, котрий інкапсулює логіку гри.
-         * Цей метод можна замінити на метод для перевірки співпадіння координат Mario та конкретної кулі, координати кулі доступні через this.
-         * public bool CheckScore(int x, int y)
-         */
-        public void CheckScore(Mario mario, List<Bonus> listBonuses)
+        public void CheckScore(int x, int y, SuperBonus superBonus, char [,] gameGround)
         {
-            ListBonuses = listBonuses;
-            for (int i = 0; i < ListBonuses.Count; i++)
+            foreach (var b in ListBonuses)
             {
-                if (mario.X == ListBonuses[i].X && mario.Y == ListBonuses[i].Y)
+                if (x == b.X && y == b.Y)
                 {
-                    ListBonuses.Remove(ListBonuses[i]);
+                    ListBonuses.Remove(b);
                     BonusScore += 50;
+                    gameGround[b.X - 1, b.Y - 1] = 'Z';
+                    break;
                 }
             }
+            if (x == superBonus.X && y == superBonus.Y)
+            {
+               BonusScore += 200;
+            }
+        }
+
+        public List<Bonus> GenerateBonus(char[,] gameGround)
+        {      ListBonuses = new List<Bonus>();
+            for (int i = 0; i < gameGround.GetLength(1); i++)
+            {
+                for (int j = 0; j < gameGround.GetLength(0); j++)
+                {
+                    if (gameGround[j, i] == 'B')
+                    {
+                        ListBonuses.Add(new Bonus(j+1, i+1));
+                    }
+                }
+            }
+            return ListBonuses;
         }
     }
 }
